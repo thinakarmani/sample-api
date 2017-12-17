@@ -17,15 +17,21 @@ public class DeptController {
 	
 	private DeptService deptService;
 	
+	//Use URL http://localhost:8080/get-dept to get the result
+	
 	@RequestMapping("/get-dept")
 	public List<Dept> getAllDepts(){
 		return deptService.findAll();
 	}
 	
+	//Use URL http://localhost:8080/get-dept/1 to get the result
+	
 	@RequestMapping("/get-dept/{deptno}")
 	public Dept getDeptById(@PathVariable int deptno){
 		return deptService.findById(deptno);
 	}
+	
+	//Use URL http://localhost:8080/add-dept with Json Data as Message Body to add Dept
 	
 	@RequestMapping(method=RequestMethod.POST, value="/add-dept")
 	public String addDept(@RequestBody Dept dept){
